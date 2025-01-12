@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema} = require("zod");
-
-await mongoose.connect("mongodb+srv://simonpaul496:m8MFa61EBtehzBaK@cluster0.a8zuj.mongodb.net/paytm");
-
+mongoose.connect("mongodb+srv://simonpaul496:m8MFa61EBtehzBaK@cluster0.a8zuj.mongodb.net/paytm");
 
 
 const userSchema= mongoose.Schema({
@@ -33,6 +31,7 @@ const userSchema= mongoose.Schema({
     }
 
 })
+const User = mongoose.model("User",userSchema);
 
 
 const accountSchema = mongoose.Schema({
@@ -47,7 +46,7 @@ const accountSchema = mongoose.Schema({
     }
 })
 
-const User = mongoose.model("User",userSchema);
+
 const Account= mongoose.model("Account",accountSchema);
 
 module.exports={
